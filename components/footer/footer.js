@@ -3,7 +3,7 @@ import Box from '../box'
 
 const Footer = () => {
   return (
-    <footer className='py-6'>
+    <footer className='py-6 m-auto'>
         <Box>
             Footer
         </Box>

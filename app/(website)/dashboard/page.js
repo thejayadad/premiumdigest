@@ -76,7 +76,7 @@ console.log("Posts " + posts)
                 : 
 
                 <div>
-                     free plan
+                     free plan 
                      <Link href={""+checkout_link}>
                         UpGrade
                      </Link>

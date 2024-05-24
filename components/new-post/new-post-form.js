@@ -40,9 +40,9 @@ const NewPostForm = () => {
   return (
     <div className="">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <div className="mt-6 border rounded-md p-4">
+            <div className="border rounded-md p-4">
               <span>Title</span>
               <Input placeholder="Title..." {...register('title')} />
               {errors.title && <p className="text-red-500">{errors.title.message}</p>}
@@ -53,7 +53,7 @@ const NewPostForm = () => {
             </div>
           </div>
           <div>
-            <div className="mt-6 border rounded-md p-4">
+            <div className="border rounded-md p-4">
               <span>Premium?</span>
               <div className="mt-2">
                 <label className="inline-flex items-center">

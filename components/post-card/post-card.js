@@ -15,7 +15,7 @@ const PostCard = ({ post }) => {
         <div className='w-full flex items-center justify-between py-4 px-2'>
           <p className='title-font sm:text-md font-medium text-gray-900'>{post.title}</p>
           {post.premium ? (
-            <span className='bg-primary/90 text-white p-1 text-small rounded-md flex items-center gap-2'>Premium 
+            <span className='bg-gray-200 text-gray-900 p-1 text-small rounded-md flex items-center gap-2'>Premium 
             <span className='text-green-900'>$</span>
             </span>
           ) : (

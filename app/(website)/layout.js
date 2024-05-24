@@ -6,11 +6,11 @@ const layout = ({children}) => {
   return (
     <div>
         <Header />
-        <main className='h-[100vh]'>
+        <main className='h-full'>
         {children}
         </main>
         <Footer />
-    </div>
+    </div> 
   )
 }
 
