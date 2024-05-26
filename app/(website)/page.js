@@ -7,9 +7,9 @@ import React from 'react'
 const HomePage = async () => {
   const posts = await prisma.post.findMany({})
   return (
-    <section className='py-6'>
+    <section className=''>
         <Box>
-          <div className='flex flex-col'>
+          <div className='flex flex-col border-l-1 border-r-1 px-2 pt-2 h-screen'>
             <div>
             <HeadingText
             title={'Premium Digest'}

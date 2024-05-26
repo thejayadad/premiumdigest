@@ -1,14 +1,14 @@
-import { auth } from '@/auth';
+import { signIn } from '@/auth';
 import Box from '@/components/box';
 import HeadingText from '@/components/heading-text';
 import { hasSubscription } from '@/lib/actions/billing';
 import prisma from '@/lib/prisma';
+import Link from 'next/link';
 import React from 'react';
+import { FiUser } from 'react-icons/fi';
 
 const SinglePostPage = async ({ params }) => {
     const postId = params.id;
-    const session = await auth();
-    const user = session?.user;
     const post = await prisma.post.findUnique({
         where: {
             id: postId
@@ -22,11 +22,6 @@ const SinglePostPage = async ({ params }) => {
         return <redirect to="/" />;
     }
 
-    // Check if the user is logged in
-    if (!user) {
-        return <redirect to="/login" />;
-    }
-
     // Check if the post is premium and the user doesn't have a subscription
     if (post.premium && !userHasSubscription) {
         return (
@@ -38,7 +33,7 @@ const SinglePostPage = async ({ params }) => {
                             description={'Upgrade your subscription to access this content'}
                         />
                         <p className="text-gray-600 pt-4">
-                            This content is only available to premium subscribers. Please <a href="/upgrade">upgrade your subscription</a> to access this post.
+                            This content is only available to premium subscribers. Please login & upgrade your subscription to access this post.
                         </p>
                     </div>
                 </Box>
@@ -56,10 +51,10 @@ const SinglePostPage = async ({ params }) => {
                     />
                     <div>
                         <div className="flex flex-col gap-6 text-gray-600 body-font overflow-hidden">
-                            <div className="container px-5 py-12 mx-auto">
-                                <div className="md::w-4/5 mx-auto flex flex-wrap">
+                            <div className="px-5 py-12 mx-auto">
+                                <div className="mx-auto flex flex-wrap">
                                     <img
-                                        className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                                        className="md:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
                                         src={post.imageSrc}
                                         alt={post.title}
                                     />
@@ -83,5 +78,7 @@ const SinglePostPage = async ({ params }) => {
         </section>
     );
 };
+
+ 
 
 export default SinglePostPage;

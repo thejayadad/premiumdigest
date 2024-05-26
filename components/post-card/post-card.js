@@ -4,7 +4,7 @@ import React from 'react';
 const PostCard = ({ post }) => {
   return (
     <Link
-      className='m-auto overflow-hidden rounded-md shadow-sm cursor-pointer h-90 w-60 md:w-80"'
+      className='m-auto overflow-hidden border p-2 rounded-md shadow-sm cursor-pointer  hover:bg-slate-100 h-90 w-60 md:w-80"'
       href={`/post/${post.id}`}
     >
       <div className='block w-full h-full'>
